@@ -48,9 +48,7 @@ def self.all
     SQL
     
     result = nil
-    DB[:conn].execute(sql, name).map do |row|
-      self.new_from_db(row)
-    end
+    DB[:conn].execute(sql, name)
     
   end
   
