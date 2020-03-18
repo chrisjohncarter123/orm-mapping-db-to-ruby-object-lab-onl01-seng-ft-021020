@@ -107,10 +107,9 @@ def self.all
       LIMIT 1
     SQL
     
-    result = []
-    DB[:conn].execute(sql).map do |row|
-      result << self.new_from_db(row)
-    end
+
+    result = self.new_from_db(DB[:conn].execute(sql)[0])
+
     
     return result
 
