@@ -120,7 +120,6 @@ def self.all
       SELECT *
       FROM students
       WHERE grade == (?)
-      LIMIT (?)
     SQL
     
     result = []
