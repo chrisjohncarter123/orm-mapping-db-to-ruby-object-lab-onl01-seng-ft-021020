@@ -115,6 +115,22 @@ def self.all
 
   end
   
+  def self.all_students_in_grade_X(X)
+    sql = <<-SQL
+      SELECT *
+      FROM students
+      WHERE grade == (?)
+      LIMIT (?)
+    SQL
+    
+    result = []
+    DB[:conn].execute(sql, X).map do |row|
+      result << self.new_from_db(row)
+    end
+    
+    return result
+  end
+  
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade) 
