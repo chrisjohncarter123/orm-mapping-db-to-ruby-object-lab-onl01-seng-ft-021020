@@ -3,13 +3,6 @@ require 'pry'
 class Student
   attr_accessor :id, :name, :grade
 
-def self.new_from_db(row)
-  new_song = self.new  # self.new is the same as running Song.new
-  new_song.id = row[0]
-  new_song.name =  row[1]
-  new_song.length = row[2]
-  new_song  # return the newly created instance
-end
 
   def self.new_from_db(row)
     # create a new Student object given a row from the database
@@ -47,8 +40,7 @@ def self.all
       WHERE name == (?)
     SQL
     
-    result = nil
-    DB[:conn].execute(sql, name)
+    DB[:conn].execute(sql, name)[0]
     
   end
   
