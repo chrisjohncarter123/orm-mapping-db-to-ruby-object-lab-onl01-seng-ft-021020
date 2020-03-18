@@ -26,7 +26,6 @@ def self.all
       FROM students
     SQL
  
- 
     result = []
     DB[:conn].execute(sql).map do |row|
       result << self.new_from_db(row)
@@ -39,6 +38,8 @@ def self.all
   def self.find_by_name(name)
     # find the student in the database given a name
     # return a new instance of the Student class
+    
+    self.all.find(|s|s.name == name)
   end
   
   def save
