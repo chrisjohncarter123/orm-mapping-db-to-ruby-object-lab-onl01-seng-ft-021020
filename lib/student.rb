@@ -1,3 +1,5 @@
+using 'pry'
+
 class Student
   attr_accessor :id, :name, :grade
 
@@ -52,6 +54,8 @@ def self.all
   end
   
   def self.all_students_in_grade_9
+    
+    binding.pry
     return all.select{|s|s.grade==9}
     
   end
