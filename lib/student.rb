@@ -46,8 +46,19 @@ def self.all
   
   def self.all_students_in_grade_9
     
-    r = all.select{|s|s.grade==9}
-   return r
+    sql = <<-SQL
+      SELECT *
+      FROM students
+      WHERE grade == 9
+    SQL
+    
+    result = []
+    DB[:conn].execute(sql).map do |row|
+      result << self.new_from_db(row)
+    end
+    
+    return result
+    
     
     
   end
