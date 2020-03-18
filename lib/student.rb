@@ -115,7 +115,7 @@ def self.all
 
   end
   
-  def self.all_students_in_grade_X(X)
+  def self.all_students_in_grade_X(x)
     sql = <<-SQL
       SELECT *
       FROM students
@@ -123,7 +123,7 @@ def self.all
     SQL
     
     result = []
-    DB[:conn].execute(sql, X).map do |row|
+    DB[:conn].execute(sql, x).map do |row|
       result << self.new_from_db(row)
     end
     
