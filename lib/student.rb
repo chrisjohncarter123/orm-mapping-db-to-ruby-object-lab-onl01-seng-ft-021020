@@ -49,7 +49,6 @@ def self.all
       result = self.new_from_db(row)
     end
     
-    new_from_db(result)
   end
   
   def self.all_students_in_grade_9
