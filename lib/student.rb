@@ -52,7 +52,7 @@ def self.all
   end
   
   def self.all_students_in_grade_9
-    all.select{|s|s.grade==9}
+    return all.select{|s|s.grade==9}
     
   end
   def save
