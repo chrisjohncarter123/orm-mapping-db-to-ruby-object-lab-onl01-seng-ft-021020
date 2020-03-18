@@ -80,7 +80,7 @@ def self.all
 
   end
   
-   def self.first_x_students_in_grade_10(x)
+   def first_x_students_in_grade_10(x)
     
     sql = <<-SQL
       SELECT *
