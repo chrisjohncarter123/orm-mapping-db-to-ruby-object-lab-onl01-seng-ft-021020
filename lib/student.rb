@@ -39,8 +39,17 @@ def self.all
     # find the student in the database given a name
     # return a new instance of the Student class
     
-    student = all.find{|s|s.name == name}
-    new_from_db(student)
+    sql = <<-SQL
+      SELECT *
+      FROM students
+      WHERE name == (?)
+    SQL
+
+    DB[:conn].execute(sql, name).map do |row|
+      result = self.new_from_db(row)
+    end
+    
+    new_from_db(result)
   end
   
   def self.all_students_in_grade_9
