@@ -56,9 +56,12 @@ def self.all
   def self.all_students_in_grade_9
     
     r = all.select{|s|s.grade==9}
-    binding.pry
-    return r
     
+    r.each do |s|
+      if(s.grade == 9)
+        return s
+      end
+    end
   end
   def save
     sql = <<-SQL
