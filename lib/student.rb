@@ -39,7 +39,7 @@ def self.all
     # find the student in the database given a name
     # return a new instance of the Student class
     
-    self.all.find(|s|s.name == name)
+    all.find(|s|s.name == name)
   end
   
   def save
