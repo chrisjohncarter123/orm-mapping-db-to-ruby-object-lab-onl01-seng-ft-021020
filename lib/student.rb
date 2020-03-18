@@ -40,7 +40,7 @@ def self.all
       WHERE name == (?)
     SQL
     
-    DB[:conn].execute(sql, name)[0]
+    return self.new_from_db(DB[:conn].execute(sql, name)[0])
     
   end
   
