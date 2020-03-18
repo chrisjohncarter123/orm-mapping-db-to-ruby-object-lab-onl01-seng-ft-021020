@@ -55,8 +55,9 @@ def self.all
   
   def self.all_students_in_grade_9
     
+    r = all.select{|s|s.grade==9}
     binding.pry
-    return all.select{|s|s.grade==9}
+    return r
     
   end
   def save
