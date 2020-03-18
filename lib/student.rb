@@ -39,9 +39,14 @@ def self.all
     # find the student in the database given a name
     # return a new instance of the Student class
     
-    all.find{|s|s.name == name}
+    student = all.find{|s|s.name == name}
+    new_from_db(student)
   end
   
+  def self.all_students_in_grade_9
+    
+    
+  end
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade) 
