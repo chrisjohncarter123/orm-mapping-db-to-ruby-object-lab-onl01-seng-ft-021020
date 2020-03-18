@@ -44,7 +44,7 @@ def self.all
       FROM students
       WHERE name == (?)
     SQL
-
+    result = nil
     DB[:conn].execute(sql, name).map do |row|
       result = self.new_from_db(row)
     end
